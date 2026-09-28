@@ -2641,3 +2641,27 @@ footer .f-social-ic{color:var(--teal-deep)!important}
   position:absolute!important;
   top:-40px!important;left:0!important;right:auto!important;bottom:auto!important;
 }
+
+/* ============================================================
+   FOOTER — column headings carry the structure
+   14px condensed teal labels were too quiet to anchor the columns,
+   so the footer read as four undifferentiated lists. Headings go up
+   to display weight at ~32px, which is what gives the reference
+   footer its structure, and the hairline above the bottom row comes
+   off.
+   ============================================================ */
+
+footer .f-grid h5{
+  margin-bottom:var(--sp-5)!important;
+  font-family:var(--display)!important;
+  font-size:clamp(24px,2vw,32px)!important;
+  font-weight:800!important;
+  line-height:1.02!important;
+  letter-spacing:-.02em!important;
+  text-transform:uppercase;
+  color:#fff!important;
+}
+footer .f-grid ul{gap:13px!important;font-size:17px!important}
+
+/* the thin white rule above the copyright row */
+footer .f-bot{border-top:0!important;margin-top:clamp(44px,5vw,68px)!important}
