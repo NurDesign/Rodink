@@ -34,7 +34,7 @@ function Build-Page {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260928">
+<link rel="stylesheet" href="assets/css/site.css?v=20260928b">
 </head>
 <body>
 
@@ -103,7 +103,7 @@ $Body
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260928"></script>
+<script src="assets/js/site.js?v=20260928b"></script>
 </body>
 </html>
 "@

@@ -2259,3 +2259,87 @@ footer{padding-top:var(--section-y)!important}
   #services .svc-item{padding:14px;border-radius:24px}
   #services .svc-shot{aspect-ratio:3/2}
 }
+
+/* ============================================================
+   PROCESS — a sequence, drawn as one
+   Three parallel white cards with a small grey numeral in the corner
+   said nothing about order, and sat directly under the three service
+   cards, so the page ran two identical card rows back to back.
+   The steps now sit on a dashed rail: order is the structure, and the
+   boxes come off so the row reads differently from the one above it.
+   ============================================================ */
+
+/* the heading sat alone in the left half with the right half empty */
+.process-section .sec-head{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:end;column-gap:clamp(32px,5vw,90px);
+}
+.process-section .sec-head .kicker{grid-column:1/-1}
+.process-section .sec-head .d2{margin-bottom:0}
+.process-section .sec-head .lead{margin:0 0 8px;max-width:42ch}
+
+.process-section .steps{
+  --step-gap:clamp(24px,3vw,48px);
+  position:relative;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:var(--step-gap);
+  align-items:start;
+}
+/* The rail runs node centre to node centre. A column is
+   (100% - 2 gaps) / 3 wide and the node is centred in it, so the first
+   centre is half of that — a flat 16.666% misses it by the gap. */
+.process-section .steps::before{
+  content:"";position:absolute;z-index:0;
+  left:calc((100% - 2 * var(--step-gap)) / 6);
+  right:calc((100% - 2 * var(--step-gap)) / 6);
+  top:44px;height:0;
+  border-top:2px dashed rgba(11,116,118,.3);
+}
+
+.process-section .step{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  min-height:0;padding:0;border:0;border-radius:0;background:none;
+}
+
+.process-section .step-node{
+  position:relative;display:grid;place-items:center;
+  width:88px;height:88px;border-radius:50%;
+  background:#fff;border:1px solid #D2E7E9;
+  box-shadow:0 0 0 9px var(--teal-wash);   /* masks the rail behind it */
+  margin-bottom:var(--sp-5);
+}
+.process-section .step-node .icon{width:42px;height:42px;color:var(--teal-deep)}
+.process-section .step-node .n{
+  position:absolute;top:0;right:0;transform:translate(22%,-14%);
+  display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
+  background:var(--teal-deep);color:#fff;
+  font-family:var(--cond);font-size:13px;font-weight:700;line-height:1;
+  letter-spacing:.04em;
+}
+
+.process-section .step h4{
+  margin:0 0 var(--sp-3)!important;
+  font-size:clamp(23px,1.9vw,29px)!important;
+}
+/* the only timing on the page was buried mid-paragraph in step three */
+.process-section .step-when{
+  display:inline-block;margin-bottom:var(--sp-3);
+  padding:5px 13px;border-radius:999px;
+  background:#fff;border:1px solid #D2E7E9;
+  font-family:var(--cond);font-size:13px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--teal-deep);
+}
+.process-section .step p{
+  max-width:34ch;margin:0!important;
+  font-size:17px!important;line-height:1.55!important;color:#3F4A4C!important;
+}
+
+@media(max-width:860px){
+  .process-section .sec-head{display:block}
+  .process-section .sec-head .d2{margin-bottom:20px}
+  .process-section .steps{grid-template-columns:minmax(0,1fr);gap:var(--sp-7)}
+  .process-section .steps::before{display:none}   /* rail is horizontal only */
+  .process-section .step-node{width:74px;height:74px;box-shadow:0 0 0 7px var(--teal-wash)}
+  .process-section .step-node .icon{width:36px;height:36px}
+}
