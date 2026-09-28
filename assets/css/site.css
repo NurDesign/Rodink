@@ -2164,3 +2164,98 @@ footer{padding-top:var(--section-y)!important}
   .stk-label em{font-size:12px}
   .lib-facts b{font-size:22px}
 }
+
+/* ============================================================
+   SERVICES — the compare block
+   The three cards used to be three brochures: a huge 1:1 tile with a
+   small product floating in it, one run-on facts line, and three
+   identical filled buttons. The section asks "which process suits the
+   job?", so the cards now answer it in a spec list that lines up across
+   all three.
+   All three shots are transparent PNGs now (the screen-print cutout
+   already existed, unused), so the tile can be tinted and the products
+   can read at one scale.
+   ============================================================ */
+
+#services .svc-row{gap:clamp(24px,2.6vw,44px);align-items:stretch}
+#services .svc-item{
+  padding:clamp(16px,1.5vw,22px);
+  border:1px solid var(--line);border-radius:30px;background:#fff;
+  transition:border-color .25s ease,transform .25s cubic-bezier(.2,.7,.3,1),
+             box-shadow .25s ease;
+}
+#services .svc-item:hover{
+  transform:translateY(-4px);border-color:#BEDCDF;
+  box-shadow:0 18px 34px -22px rgba(11,60,62,.4);
+}
+
+/* one tinted tile, no offset panel: three stacked devices at 3x was
+   clutter, and the tint is what makes the products read as a set */
+#services .svc-shot{
+  position:relative;aspect-ratio:4/3;margin:0 0 var(--sp-4);
+  border-radius:20px;background:var(--teal-wash);overflow:hidden;
+}
+#services .svc-shot::before,#services .svc-shot::after{content:none}
+#services .svc-shot img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:contain;padding:clamp(10px,1.1vw,18px);
+  transition:transform .45s cubic-bezier(.2,.7,.2,1);
+}
+#services .svc-item:hover .svc-shot img{transform:scale(1.045)}
+
+/* the numeral is an index, not decoration — it sat at 86px in pale teal
+   over the card corner */
+#services .svc-head{
+  display:flex;align-items:center;gap:var(--sp-3);
+  padding-bottom:var(--sp-3);margin-bottom:var(--sp-3);
+  border-bottom:1px solid var(--line);
+}
+#services .svc-no{
+  position:static;flex:none;display:grid;place-items:center;
+  width:26px;height:26px;border-radius:50%;
+  background:var(--teal-deep);color:#fff;
+  font-family:var(--cond);font-size:13px;font-weight:700;
+  letter-spacing:.04em;line-height:1;
+}
+#services .svc-item:hover .svc-no{color:#fff}
+
+#services .svc-item h3{margin:0 0 var(--sp-3);font-size:clamp(25px,2vw,33px)}
+#services .svc-item>p{font-size:16px!important;line-height:1.5!important;margin-bottom:var(--sp-5)!important}
+
+/* pushed to the bottom so the three spec blocks line up across the row
+   no matter how long each description runs */
+#services .svc-spec{
+  margin:auto 0 0;padding-top:var(--sp-2);
+  border-top:1px solid var(--line);
+}
+#services .svc-spec>div{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:var(--sp-3);padding:9px 0;border-bottom:1px solid #EDF0F1;
+}
+#services .svc-spec>div:last-child{border-bottom:0}
+#services .svc-spec dt{
+  font-family:var(--cond);font-size:13px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60);
+}
+#services .svc-spec dd{
+  margin:0;font-family:var(--body);font-size:16px;font-weight:700;
+  line-height:1.2;text-align:right;color:var(--teal-deep);
+}
+
+/* outline, not three identical filled pills */
+#services .svc-cta{
+  margin-top:var(--sp-5);align-self:stretch;justify-content:center;
+  background:#fff;border-color:#CAD3D6;color:#000;
+}
+#services .svc-cta:hover{background:var(--teal-deep);border-color:var(--teal-deep);color:#fff}
+#services .svc-cta:hover .icon{color:#fff}
+
+@media(max-width:980px){
+  #services .svc-row{grid-template-columns:1fr 1fr}
+  #services .svc-item:first-child{grid-column:auto}
+}
+@media(max-width:640px){
+  #services .svc-row{grid-template-columns:minmax(0,1fr)}
+  #services .svc-item{padding:14px;border-radius:24px}
+  #services .svc-shot{aspect-ratio:3/2}
+}
