@@ -2348,3 +2348,179 @@ footer{padding-top:var(--section-y)!important}
   .process-section .step-node{width:74px;height:74px;box-shadow:0 0 0 7px var(--teal-wash)}
   .process-section .step-node .icon{width:36px;height:36px}
 }
+
+/* ============================================================
+   QUOTE — fewer surfaces, and the fields the shop actually asks for
+   The section was a panel holding two white cards, and the left card
+   held four more white tiles: four nested surfaces deep. The copy
+   column now sits straight on the panel so the form is the only
+   object, and the contact tiles become plain rows.
+   ============================================================ */
+
+#quote .q-grid>div:first-child,
+.section-panel #quote .q-grid>div:first-child{
+  padding:0!important;border:0!important;border-radius:0!important;
+  background:transparent!important;
+}
+#quote .q-intro{align-self:center}
+
+/* plain rows, not four boxes inside a box */
+#quote .cl-list{
+  display:flex!important;flex-direction:column;gap:0!important;
+  margin:var(--sp-6) 0 0!important;padding:0;list-style:none;
+  border-top:1px solid #CFE4E6;
+}
+#quote .cl{
+  display:grid!important;grid-template-columns:44px 1fr;align-items:center;gap:var(--sp-3)!important;
+  padding:13px 0!important;border:0!important;border-bottom:1px solid #CFE4E6!important;
+  border-radius:0!important;background:transparent!important;
+}
+#quote .cl .contact-icon{
+  width:44px;height:44px;border-radius:13px;background:#fff;border:1px solid #D9EAEC;
+}
+#quote .cl .contact-icon .icon{width:24px;height:24px}
+#quote .cl>div{display:flex;flex-direction:column;gap:1px;min-width:0}
+#quote .cl span{
+  font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-60);
+}
+#quote .cl a,#quote .cl b{font-size:17px;font-weight:700;color:#000;text-decoration:none;word-break:break-word}
+#quote .cl a:hover{color:var(--teal-deep)}
+
+/* Service / Quantity / Deadline sit together: they are the three
+   answers that change the price. */
+#quote .row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#quote .form{align-self:stretch!important}
+#quote .field input[type="date"]{font-family:var(--body)}
+
+/* there is no backend to receive an upload, so say where art goes */
+#quote .form-note{
+  margin:0!important;font-size:14px!important;line-height:1.5!important;
+  color:#5A6466!important;
+}
+#quote .form-note a{color:var(--teal-deep);font-weight:700}
+
+@media(max-width:820px){
+  #quote .row3{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   FOOTER — give the page a base to land on
+   It was white text-on-white with no ground of its own, so the page
+   just trailed off. A solid deep-teal band is what makes a footer
+   read as the end of the page, and it is the brand primary rather
+   than a new colour.
+   White on #0A5F61 measures 7.5:1, so body copy and links clear AA.
+   ============================================================ */
+
+footer{
+  margin-top:var(--section-y);
+  padding:clamp(56px,6vw,88px) 0 clamp(28px,3vw,40px)!important;
+  border-top:0!important;
+  background:#0A5F61;color:#fff;
+}
+/* the wordmark is flat brand teal, which disappears on this ground */
+footer .f-logo img{filter:brightness(0) invert(1)!important;height:46px}
+footer .f-logo p{color:rgba(255,255,255,.72)!important;font-size:17px!important;line-height:1.6!important;font-weight:400!important;max-width:34ch}
+
+footer .f-grid{gap:clamp(28px,3vw,48px) clamp(24px,2.6vw,44px)}
+
+/* the headings were 14px body weight — too quiet to structure a footer */
+footer .f-grid h5{
+  margin-bottom:var(--sp-4)!important;
+  font-family:var(--cond)!important;font-size:14px!important;font-weight:700!important;
+  letter-spacing:.16em!important;text-transform:uppercase;
+  color:var(--teal)!important;
+}
+/* an earlier generation forces .f-grid ul and .f-bot to #000 with
+   !important, so these have to answer in kind */
+footer .f-grid ul{gap:11px!important;font-size:16px!important;font-weight:600!important;color:rgba(255,255,255,.82)!important}
+footer .f-grid ul a{color:rgba(255,255,255,.82)!important;text-decoration:none;transition:color .2s ease}
+footer .f-grid ul a:hover{color:#fff!important}
+
+footer .f-contact li{line-height:1.5}
+footer .f-lab{
+  display:block;margin-bottom:2px;
+  font-family:var(--cond);font-size:12px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:rgba(255,255,255,.5);
+}
+
+footer .f-social{
+  display:inline-flex;align-items:center;gap:10px;margin-top:var(--sp-5);
+  padding:8px 16px 8px 8px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  font-family:var(--body);font-size:15px;font-weight:700;
+  color:#fff!important;text-decoration:none;
+  transition:background .2s ease,border-color .2s ease;
+}
+footer .f-social:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+/* the glyph bakes in its own brand colours, so it keeps a light chip */
+footer .f-social-ic{
+  display:grid;place-items:center;width:32px;height:32px;
+  border-radius:50%;background:#fff;
+}
+footer .f-social-ic .icon{width:19px;height:19px}
+
+footer .f-bot{
+  margin-top:clamp(36px,4vw,56px)!important;padding-top:var(--sp-5)!important;
+  border-top:1px solid rgba(255,255,255,.16)!important;
+  display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4);
+  font-family:var(--cond)!important;font-size:13px!important;font-weight:600!important;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.6)!important;
+}
+footer .f-bot a{color:rgba(255,255,255,.6)!important;text-decoration:none}
+footer .f-bot a:hover{color:#fff!important}
+
+@media(max-width:560px){
+  footer .f-bot{flex-direction:column;align-items:flex-start;gap:10px}
+}
+
+/* ============================================================
+   STICKER LIBRARY — align to a grid
+   The per-item widths (hero/wide/bumper/md/sm) and the small
+   rotations were built for the earlier SVGs, which had different
+   aspect ratios and needed hand placing. The supplied icon set is
+   uniformly 128x128, so unequal widths now read as unequal heights
+   and the rows came out ragged.
+   One column width, one icon size, no rotation: every icon lines up
+   horizontally within its row and vertically with the rows above.
+   ============================================================ */
+
+.stk-row{
+  display:grid!important;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  align-items:start!important;
+  gap:clamp(20px,2.4vw,34px) clamp(12px,1.6vw,24px)!important;
+}
+/* one size for every icon, whatever the item used to be called */
+.stk-hero .stk-art,.stk-wide .stk-art,.stk-bumper .stk-art,
+.stk-md .stk-art,.stk-sm .stk-art{
+  width:clamp(86px,7.6vw,108px);
+}
+.stk-art{margin-inline:auto;filter:drop-shadow(0 6px 12px rgba(11,60,62,.14))}
+/* hand-placed tilts fought the grid the user is reading */
+.stk-row .stk:nth-child(3n+1) .stk-art,
+.stk-row .stk:nth-child(3n+2) .stk-art,
+.stk-row .stk:nth-child(3n+3) .stk-art{transform:none}
+.stk:hover .stk-art,.stk:focus-visible .stk-art{
+  transform:translateY(-6px) scale(1.04);
+  filter:drop-shadow(0 14px 20px rgba(11,60,62,.22));
+}
+.stk{width:auto!important}
+
+@media(max-width:900px){
+  .stk-row{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:560px){
+  .stk-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stk-hero .stk-art,.stk-wide .stk-art,.stk-bumper .stk-art,
+  .stk-md .stk-art,.stk-sm .stk-art{width:84px}
+}
+/* nowrap was needed when the cell sized itself to the label; on the
+   fixed grid it overflows into the neighbouring column instead */
+.stk-label b,.stk-label em{white-space:normal!important}
+.stk-label{max-width:100%}
+/* the glyph paints with currentColor, which inherited the link's white
+   and vanished against its own white chip */
+footer .f-social-ic{color:var(--teal-deep)!important}

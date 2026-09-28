@@ -34,7 +34,7 @@ function Build-Page {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260928c">
+<link rel="stylesheet" href="assets/css/site.css?v=20260928g">
 </head>
 <body>
 
@@ -74,6 +74,10 @@ $Body
       <div class="f-logo">
         <img src="assets/brand/logo.png" alt="RodinK">
         <p>RodinK offers top-notch screen printing and on-demand stickers. Screen print, stickers and DTF, produced in Pacoima, Los Angeles.</p>
+        <a class="f-social" href="https://www.instagram.com/rodinkprinting/" target="_blank" rel="noopener">
+          <span class="f-social-ic"><svg class="icon" aria-hidden="true"><use href="#i-instagram"></use></svg></span>
+          <span>@rodinkprinting</span>
+        </a>
       </div>
       <div><h5>Print</h5><ul>
         <li><a href="screen-print.html">Screen Print</a></li>
@@ -90,11 +94,10 @@ $Body
         <li><a href="faq-stickers.html">FAQ &ndash; Stickers</a></li>
         <li><a href="get-a-quote.html">Get a Quote</a></li>
         <li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h5>Find us</h5><ul>
-        <li>9901 San Fernando Rd<br>Pacoima, CA 91331</li>
-        <li><a href="tel:+18186416940">+1 818 641 6940</a></li>
-        <li><a href="mailto:info@rodinkprinting.com">info@rodinkprinting.com</a></li>
-        <li><a href="https://www.instagram.com/rodinkprinting/" target="_blank" rel="noopener">@rodinkprinting</a></li></ul></div>
+      <div class="f-contact"><h5>Find us</h5><ul>
+        <li><span class="f-lab">Shop</span>9901 San Fernando Rd<br>Pacoima, CA 91331</li>
+        <li><span class="f-lab">Phone</span><a href="tel:+18186416940">+1 818 641 6940</a></li>
+        <li><span class="f-lab">Email</span><a href="mailto:info@rodinkprinting.com">info@rodinkprinting.com</a></li></ul></div>
     </div>
     <div class="f-bot">
       <div>&copy; <span id="yr"></span> RodinK. All rights reserved.</div>
@@ -103,7 +106,7 @@ $Body
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260928c"></script>
+<script src="assets/js/site.js?v=20260928g"></script>
 </body>
 </html>
 "@
