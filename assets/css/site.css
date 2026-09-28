@@ -2311,7 +2311,7 @@ footer{padding-top:var(--section-y)!important}
 }
 .process-section .step-node .icon{width:42px;height:42px;color:var(--teal-deep)}
 .process-section .step-node .n{
-  position:absolute;top:0;right:0;transform:translate(22%,-14%);
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
   background:var(--teal-deep);
   font-family:var(--cond);font-size:13px;font-weight:700;line-height:1;
