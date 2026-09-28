@@ -2631,3 +2631,42 @@ footer .f-bot{border-top:0!important;margin-top:clamp(44px,5vw,68px)!important}
 
 .hero-product-dtf .product-art{height:296px}
 .hero-product-screen .product-art{height:400px}
+
+/* ============================================================
+   PAGE HERO — masthead, not a left-aligned block
+   Every inner page put the crumb, heading, lead and buttons in one
+   narrow stack down the left, leaving the right half of the row
+   empty. The home hero fills that width with product art; these had
+   nothing, which is what made the inner pages read as unfinished.
+   All 13 heroes share the same five elements in the same order, so
+   this is layout only — no markup or copy changes.
+   Headline left, lead right on its baseline, actions under the
+   headline.
+   ============================================================ */
+
+.page-hero .wrap{
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  column-gap:clamp(36px,5vw,88px);
+  align-items:end;
+}
+.page-hero .crumb{grid-column:1/-1}
+.page-hero .section-label{grid-column:1/-1}
+.page-hero h1{
+  grid-column:1;grid-row:3;
+  margin:0!important;align-self:end;
+}
+.page-hero p{
+  grid-column:2;grid-row:3;
+  align-self:end;max-width:46ch;
+  margin:0 0 6px!important;
+}
+.page-hero .hero-cta{grid-column:1;grid-row:4;margin-top:var(--sp-6)}
+
+@media(max-width:900px){
+  /* back to the natural stack: crumb, label, h1, lead, actions */
+  .page-hero .wrap{display:block}
+  .page-hero h1{margin:0 0 var(--sp-4)!important}
+  .page-hero p{max-width:60ch;margin:0!important}
+  .page-hero .hero-cta{margin-top:var(--sp-5)}
+}
