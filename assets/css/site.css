@@ -2074,3 +2074,93 @@ footer{padding-top:var(--section-y)!important}
   #services .svc-item h3{font-size:28px}
   #services .svc-no{font-size:56px}
 }
+
+/* ============================================================
+   STICKER LIBRARY — the sheet
+   Replaces the 13-identical-chips grid. Each item renders its
+   actual cut or finish, white-keylined like real vinyl, laid
+   on a backing sheet and grouped by what the buyer is choosing.
+   ============================================================ */
+
+/* the copy column was running ~60% empty — give that width to the sheet */
+#library .wrap{grid-template-columns:minmax(272px,.52fr) minmax(0,1.48fr);gap:clamp(40px,5.2vw,82px)}
+#library .sec-head{max-width:400px}
+#library .sec-head,.stk-sheet{min-width:0}
+
+.lib-facts{margin:34px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.lib-facts li{display:flex;align-items:baseline;justify-content:space-between;gap:var(--sp-4);
+  padding:13px 0;border-bottom:1px solid #EDF0F1}
+.lib-facts b{font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--teal-deep)}
+.lib-facts span{font-family:var(--cond);font-size:15px;font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-60)}
+.lib-cta{margin-top:var(--sp-5)}
+
+/* --- the backing sheet --- */
+.stk-sheet{position:relative;display:flex;flex-direction:column;gap:var(--sp-7);
+  padding:clamp(24px,3vw,40px);border:1px solid #D9EAEC;border-radius:32px;background:var(--teal-wash)}
+.stk-sheet::before{content:"";position:absolute;inset:11px;border:2px dashed rgba(11,116,118,.16);
+  border-radius:23px;pointer-events:none}
+
+.stk-group{position:relative}
+.stk-glabel{display:flex;align-items:center;gap:var(--sp-3);margin:0 0 var(--sp-5);
+  font-family:var(--cond);font-size:15px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--teal-deep)}
+.stk-glabel::after{content:"";flex:1;height:1px;background:rgba(11,116,118,.18)}
+
+.stk-row{display:flex;flex-wrap:wrap;align-items:flex-end;
+  gap:clamp(18px,2.4vw,32px) clamp(14px,1.9vw,26px)}
+
+/* --- one sticker --- */
+.stk{display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none}
+.stk-art{display:block;line-height:0;
+  filter:drop-shadow(0 8px 14px rgba(11,60,62,.16));
+  transition:transform .26s cubic-bezier(.2,.7,.3,1),filter .26s ease}
+.stk-art svg{display:block;width:100%;height:auto;overflow:visible}
+.stk-label{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.stk-label b{font-family:var(--body);font-size:17px;font-weight:700;line-height:1.15;color:#000;white-space:nowrap;
+  transition:color .2s ease}
+.stk-label em{font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:.08em;white-space:nowrap;
+  text-transform:uppercase;font-style:normal;color:var(--ink-60)}
+
+/* sizes — the cut you are most likely to order is the biggest */
+.stk-hero  .stk-art{width:clamp(140px,11.3vw,162px)}
+.stk-wide  .stk-art{width:clamp(138px,11.1vw,160px)}
+.stk-bumper .stk-art{width:clamp(176px,14.3vw,206px)}
+.stk-md    .stk-art{width:clamp(100px,8.4vw,120px)}
+.stk-sm    .stk-art{width:clamp(90px,7.4vw,106px)}
+
+/* laid on the sheet by hand, not by a grid */
+.stk-row .stk:nth-child(3n+1) .stk-art{transform:rotate(-2.5deg)}
+.stk-row .stk:nth-child(3n+2) .stk-art{transform:rotate(1.8deg)}
+.stk-row .stk:nth-child(3n+3) .stk-art{transform:rotate(-1.2deg)}
+
+.stk:hover .stk-art,.stk:focus-visible .stk-art{transform:rotate(0) translateY(-7px) scale(1.035);
+  filter:drop-shadow(0 16px 24px rgba(11,60,62,.24))}
+.stk:hover .stk-label b,.stk:focus-visible .stk-label b{color:var(--teal-deep)}
+.stk:focus-visible{outline:2px solid var(--teal-deep);outline-offset:8px;border-radius:12px}
+
+@media(prefers-reduced-motion:reduce){
+  .stk-art,.stk:hover .stk-art{transform:none;transition:none}
+}
+
+@media(max-width:1100px){
+  /* must restate: the rebalanced columns above sit later in the file than
+     the original collapse rule, so they would otherwise win here too */
+  #library .wrap{grid-template-columns:minmax(0,1fr);gap:var(--sp-7)}
+  #library .sec-head{max-width:none}
+  .stk-hero .stk-art,.stk-wide .stk-art{width:clamp(134px,19vw,172px)}
+  .stk-bumper .stk-art{width:clamp(164px,23vw,210px)}
+}
+@media(max-width:620px){
+  .stk-sheet{gap:var(--sp-6);padding:18px 16px;border-radius:24px}
+  .stk-sheet::before{inset:8px;border-radius:17px}
+  .stk-row{gap:20px 16px;justify-content:flex-start}
+  .stk-hero .stk-art,.stk-wide .stk-art{width:126px}
+  .stk-bumper .stk-art{width:150px}
+  .stk-md .stk-art{width:94px}
+  .stk-sm .stk-art{width:86px}
+  .stk-label b,.stk-label em{white-space:normal}
+  .stk-label b{font-size:15px}
+  .stk-label em{font-size:12px}
+  .lib-facts b{font-size:22px}
+}
