@@ -2269,14 +2269,14 @@ footer{padding-top:var(--section-y)!important}
    boxes come off so the row reads differently from the one above it.
    ============================================================ */
 
-/* the heading sat alone in the left half with the right half empty */
-.process-section .sec-head{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  align-items:end;column-gap:clamp(32px,5vw,90px);
-}
-.process-section .sec-head .kicker{grid-column:1/-1}
-.process-section .sec-head .d2{margin-bottom:0}
-.process-section .sec-head .lead{margin:0 0 8px;max-width:42ch}
+/* A two-column heading was tried here, but this selector already
+   carries a shared rule (~line 1004) that caps .sec-head at
+   max-width:820px for every section. That rule doesn't reset on a
+   grid, so the two columns were squeezed into 820px total — the lead
+   read as a narrow, disconnected block instead of sitting under the
+   heading. Simplest fix: stop fighting the shared rule and let this
+   heading stack like every other section's does. */
+.process-section .sec-head .lead{margin:0;max-width:640px}
 
 .process-section .steps{
   --step-gap:clamp(24px,3vw,48px);
@@ -2313,9 +2313,16 @@ footer{padding-top:var(--section-y)!important}
 .process-section .step-node .n{
   position:absolute;top:0;right:0;transform:translate(22%,-14%);
   display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
-  background:var(--teal-deep);color:#fff;
+  background:var(--teal-deep);
   font-family:var(--cond);font-size:13px;font-weight:700;line-height:1;
   letter-spacing:.04em;
+  /* !important is required here: two older generations of .step .n
+     (lines ~480, ~831) each force color with !important, and
+     !important always wins over a plain declaration no matter which
+     selector is more specific or comes later. Without this, the
+     badge rendered near-black text on the teal-deep circle — the
+     "numbers aren't visible" bug. */
+  color:#fff!important;
 }
 
 .process-section .step h4{
@@ -2336,8 +2343,6 @@ footer{padding-top:var(--section-y)!important}
 }
 
 @media(max-width:860px){
-  .process-section .sec-head{display:block}
-  .process-section .sec-head .d2{margin-bottom:20px}
   .process-section .steps{grid-template-columns:minmax(0,1fr);gap:var(--sp-7)}
   .process-section .steps::before{display:none}   /* rail is horizontal only */
   .process-section .step-node{width:74px;height:74px;box-shadow:0 0 0 7px var(--teal-wash)}
