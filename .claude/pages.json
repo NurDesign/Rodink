@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "screen-print",
+    "active": "screen-print",
+    "title": "Screen Printing in Los Angeles — RodinK",
+    "description": "Automated screen printing from our Pacoima facility. Puff, jumbo, soft hand, high density, metallic, CMYK, glow in the dark and more, up to six colours."
+  },
+  {
+    "slug": "stickers",
+    "active": "stickers",
+    "title": "Custom Stickers — RodinK Printing",
+    "description": "Custom die-cut vinyl stickers with no minimum order. Any shape at no extra charge, free digital proof with cutlines, 3-6 business days to print."
+  },
+  {
+    "slug": "what-is-dtf",
+    "active": "dtf",
+    "title": "What is DTF? — Direct to Film Transfers — RodinK",
+    "description": "Ready-to-press direct-to-film transfers. No minimums, no art fees, priced by sheet area rather than colour count."
+  },
+  {
+    "slug": "services",
+    "active": "services",
+    "title": "Print Services — Puff, Jumbo, Metallic, CMYK — RodinK",
+    "description": "Print techniques and finishing services for large and small business: puff, jumbo, soft hand, high density, metallic, CMYK, glow in the dark, relabeling, tagging and poly bagging."
+  },
+  {
+    "slug": "portfolio",
+    "active": "portfolio",
+    "title": "Portfolio — Recent Print Work — RodinK",
+    "description": "Twenty recent jobs off the press: screen printed garments and full-colour DTF transfers produced in our Los Angeles shop."
+  },
+  {
+    "slug": "deals",
+    "active": "",
+    "title": "Sticker Deals — RodinK Printing",
+    "description": "Holographic, bumper and static cling stickers on thick durable vinyl. Proof within 24 hours, production in 3-6 business days."
+  },
+  {
+    "slug": "getting-started",
+    "active": "",
+    "title": "Getting Started — How to Place an Order — RodinK",
+    "description": "Minimums, artwork requirements, payment, mock-up approval and our full screen printing policy."
+  },
+  {
+    "slug": "faq-dtf",
+    "active": "faq",
+    "title": "FAQ — DTF Transfers — RodinK Printing",
+    "description": "DTF pricing, ordering, gang sheets, pressing temperatures and turnaround."
+  },
+  {
+    "slug": "faq-stickers",
+    "active": "faq",
+    "title": "FAQ — Stickers — RodinK Printing",
+    "description": "Sticker minimums, custom shapes, pricing, proofs, artwork formats and shipping."
+  },
+  {
+    "slug": "about",
+    "active": "",
+    "title": "About RodinK — Los Angeles Garment Decorating",
+    "description": "A custom garment decorating and fulfillment company in Pacoima, Los Angeles, running a fully automated screen printing facility."
+  },
+  {
+    "slug": "get-a-quote",
+    "active": "",
+    "title": "Get a Quote — RodinK Printing",
+    "description": "Send your artwork, quantity and deadline. Estimates within 48 hours, valid for 30 days."
+  },
+  {
+    "slug": "contact",
+    "active": "",
+    "title": "Contact — RodinK Printing, Pacoima CA",
+    "description": "9901 San Fernando Rd, Pacoima CA 91331. Call +1 818 641 6940 or email info@rodinkprinting.com."
+  },
+  {
+    "slug": "privacy",
+    "active": "",
+    "title": "Privacy Policy — RodinK Printing",
+    "description": "How RodinK Printing collects, uses and protects information submitted through this website."
+  }
+]
