@@ -2524,3 +2524,79 @@ footer .f-bot a:hover{color:#fff!important}
 /* the glyph paints with currentColor, which inherited the link's white
    and vanished against its own white chip */
 footer .f-social-ic{color:var(--teal-deep)!important}
+
+/* ============================================================
+   HOME HERO — label collisions and the doubled bottom gap
+   1. The product labels were placed with hardcoded offsets
+      (left:236px, right:244px, top:292px) tuned to one viewport
+      width. Measured at 1920 they overlapped both their own
+      product art and the CTA row:
+        screen label  x508-684  over art ending x606
+        dtf    label  x1223-1416 over art starting x1331
+        hero-cta      x550-1370 y608-666 -> both labels land on it
+      Putting each label in flow beneath its own art cannot
+      collide at any width.
+   2. .home-hero-grid added padding-bottom up to 110px on top of
+      the section's own 96px, so the space under the headline ran
+      110 + 96 + 96 = 302px where the spacing system calls for 192.
+   ============================================================ */
+
+.hero-product .product-label{
+  position:relative!important;
+  inset:auto!important;
+  transform:none!important;
+  width:max-content;
+  margin:12px auto 0!important;
+  grid-template-columns:24px auto;
+  column-gap:8px;
+}
+.hero-product .product-label::before{width:24px}
+.hero-product .product-label::after{top:auto;bottom:calc(100% + 4px);right:0}
+
+/* the grid no longer reserves a second section's worth of space */
+.home-hero-grid{
+  padding-bottom:clamp(32px,3vw,48px)!important;
+  min-height:600px;
+}
+/* the sticker stack sits above the DTF shirt, so its label landed
+   behind that image and disappeared. Each .hero-product has a
+   transform, so it makes its own stacking context and a child
+   z-index cannot lift the label out on its own. */
+.hero-product-stickers{z-index:3}
+.hero-product-dtf{z-index:2}
+.hero-product-screen{z-index:2}
+
+/* trim the remaining slack under the hero to land on the 192px step */
+.hero.home-hero{padding-bottom:var(--sp-8)!important}
+/* The sticker stack has the DTF shirt directly beneath it, so a label
+   under it lands on the shirt whichever way it is stacked. The clear
+   space is above, so this one product reverses: label, then art. */
+.hero-product-stickers{display:flex;flex-direction:column-reverse;align-items:center}
+.hero-product-stickers .product-label{margin:0 auto 14px!important}
+.hero-product-stickers .product-label::after{bottom:auto;top:-15px}
+
+/* ============================================================
+   PROCESS — supplied step artwork
+   The provided SVGs carry their own circle, ring and 01/02/03
+   badge, so the node stops drawing all three or they double up.
+   ============================================================ */
+
+.process-section .steps{--node-w:clamp(112px,10.4vw,152px)}
+
+.process-section .step-node{
+  width:var(--node-w);height:var(--node-w);
+  display:block;margin:0 0 var(--sp-4);
+  background:none!important;border:0!important;
+  box-shadow:none!important;border-radius:0!important;
+}
+.process-section .step-svg{display:block;width:100%;height:100%}
+
+/* The circle in the supplied art is centred at 72,82 of a 160 box, so
+   it sits left of and below the box centre. The rail follows the
+   circle rather than the box: x = 45% of the node, y = 51.25%.
+   The circle is opaque and paints above the rail, so it masks it. */
+.process-section .steps::before{
+  top:calc(0.5125 * var(--node-w));
+  left:calc((100% - 2 * var(--step-gap)) / 6 - 0.05 * var(--node-w));
+  right:calc((100% - 2 * var(--step-gap)) / 6 + 0.05 * var(--node-w));
+}
