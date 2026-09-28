@@ -2830,3 +2830,6 @@ footer .f-bot{border-top:0!important;margin-top:clamp(44px,5vw,68px)!important}
   color:#000!important;text-decoration:none;overflow-wrap:anywhere;
 }
 .cl a:hover{color:var(--teal-deep)!important}
+/* the quote page form uses the same three-across row as the home form */
+.form .row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media(max-width:820px){.form .row3{grid-template-columns:1fr}}
