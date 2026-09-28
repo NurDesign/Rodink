@@ -2600,3 +2600,44 @@ footer .f-social-ic{color:var(--teal-deep)!important}
   left:calc((100% - 2 * var(--step-gap)) / 6 - 0.05 * var(--node-w));
   right:calc((100% - 2 * var(--step-gap)) / 6 + 0.05 * var(--node-w));
 }
+
+/* ============================================================
+   Two corrections
+   1. Making .hero-product-stickers a flex column-reverse to lift the
+      label above the stack collapsed the artwork: every image inside
+      .sticker-stack is absolutely positioned, so as a flex item the
+      stack measured 0 wide and the stickers disappeared. The label is
+      a callout, so position it instead of reflowing the product.
+   2. The supplied step art centres its circle at 72 of a 160 box, so
+      the circle lands 5% of the node left of the column centre and
+      read as misaligned against the caption under it. Nudge the node
+      by that 5% so the circle, the caption and the rail share one
+      centre line.
+   ============================================================ */
+
+.hero-product-stickers{display:block!important}
+.hero-product-stickers{top:78px}
+.hero-product-stickers .product-label{
+  position:absolute!important;
+  left:0;right:auto;top:-38px;bottom:auto;
+  transform:none!important;margin:0!important;
+  width:max-content;
+}
+.hero-product-stickers .product-label::after{bottom:auto;top:-15px}
+
+.process-section .step-node{
+  transform:translateX(calc(0.05 * var(--node-w)));
+}
+/* with the node nudged, the circle centre is the column centre again */
+.process-section .steps::before{
+  left:calc((100% - 2 * var(--step-gap)) / 6);
+  right:calc((100% - 2 * var(--step-gap)) / 6);
+}
+/* The generic label rule above uses inset:auto!important, which beat
+   these offsets and dropped the label back into flow under the stack,
+   i.e. onto the DTF shirt. Same importance, later in the file, so
+   these now win. */
+.hero-product-stickers .product-label{
+  position:absolute!important;
+  top:-40px!important;left:0!important;right:auto!important;bottom:auto!important;
+}
