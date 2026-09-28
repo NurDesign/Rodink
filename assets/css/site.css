@@ -780,18 +780,11 @@ footer{padding:48px 0 20px;border-top:1px solid #E5E5E5;background:#fff;color:va
 .icon-sprite{position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;pointer-events:none}
 .icon{display:block;width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
 .icon-arrow{width:18px;height:18px}
-/* Sticker arrows: NEVER auto-size to natural PNG dimensions */
-img.icon-sticker{
-  display:block!important;flex:none!important;object-fit:contain!important;
-  width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important;
-  stroke:none!important;fill:none!important;overflow:visible
-}
 .btn,.text-link,.gallery-foot a{display:inline-flex;align-items:center;gap:12px}
 .text-link .icon{color:var(--teal);transition:transform .18s ease}
 .text-link:hover .icon{transform:translateY(3px)}
 .btn .icon{transition:transform .18s ease}
 .btn:hover .icon{transform:translateX(3px)}
-.btn:hover .icon-sticker{transform:translate(2px,-2px)}
 
 .hero-proof{display:flex;align-items:center;gap:10px}
 .hero-proof a{display:flex;align-items:center;gap:9px;min-height:46px;padding:8px 13px 8px 9px;border:1px solid #E1E1E1;border-radius:999px;background:#fff;font-family:var(--cond);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:border-color .18s,background .18s,transform .18s}
@@ -804,7 +797,6 @@ img.icon-sticker{
 .gallery-controls button:disabled{opacity:.3;cursor:not-allowed;background:#F6F6F6;color:#888}
 .gallery-controls button:disabled:hover{background:#F6F6F6;color:#888}
 .gallery-foot a .icon{width:16px;height:16px;transition:transform .18s ease}
-.gallery-foot a .icon-sticker{width:22px;height:22px;object-fit:contain}
 .gallery-foot a:hover .icon{transform:translate(2px,-2px)}
 
 .ben{display:grid;grid-template-columns:48px 1fr;align-items:center;gap:13px;padding-top:20px;padding-bottom:20px}
@@ -890,15 +882,6 @@ nav.main a:hover{background:var(--teal-wash);color:var(--teal-deep)}
 .btn:hover{transform:translateY(-2px);box-shadow:none}
 .btn-coral{background:var(--teal-deep);border-color:var(--teal-deep);color:#fff}
 header .hd-r .btn-coral{padding:9px 10px 9px 20px;background:#fff;border-color:var(--line);color:#000}
-header .hd-r .btn-coral .icon-sticker{width:40px!important;height:40px!important;max-width:40px!important;max-height:40px!important;padding:0;border-radius:0;background:transparent}
-.btn .icon-sticker,.text-link .icon-sticker,.gallery-foot a .icon-sticker{display:block;object-fit:contain;flex:none}
-.home-hero-copy .btn-coral .icon-sticker{width:42px!important;height:42px!important;max-width:42px!important;max-height:42px!important}
-.text-link .icon-sticker{width:30px!important;height:30px!important;max-width:30px!important;max-height:30px!important}
-.gallery-controls button .icon-sticker{width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important}
-.gallery-foot a .icon-sticker{width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important}
-.card .btn .icon-sticker{width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important}
-#quote .form>.btn .icon-sticker,.btn-coral .icon-sticker{width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important}
-.lb-p .icon-sticker,.lb-n .icon-sticker{width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important}
 .burger{border:1px solid var(--line);border-radius:50%;background:#fff}
 
 .hero.home-hero{border:0;padding:120px 0 96px;background:#fff;isolation:isolate;overflow:visible}
@@ -975,7 +958,6 @@ header .hd-r .btn-coral .icon-sticker{width:40px!important;height:40px!important
 .gallery-caption b{font-family:var(--body);font-size:18px;font-weight:700;letter-spacing:0;text-transform:none;color:#000}
 .gallery-foot{padding-top:18px;color:#000;text-transform:none;letter-spacing:0;font-family:var(--body);font-size:18px;font-weight:600}
 .gallery-foot a{color:var(--teal-deep);font-weight:700}
-.gallery-foot a .icon-sticker{width:28px!important;height:28px!important}
 .card-body p{font-size:clamp(26px,2vw,34px);font-weight:600;line-height:1.4;color:#000}
 .specs li b{font-size:17px;font-weight:600;color:#000}
 .specs li span{font-family:var(--body);font-size:20px;font-weight:700;color:#000}
@@ -1032,7 +1014,6 @@ header .hd-r .btn-coral .icon-sticker{width:40px!important;height:40px!important
 .specs li b{font-size:16px;font-weight:600;color:#000}
 .specs li span{font-family:var(--body);font-size:18px;font-weight:700;color:#000}
 .card .btn{margin-top:4px;background:#fff;border-color:#CAD3D6;color:#000}
-.card .btn .icon-sticker{width:28px!important;height:28px!important}
 .card .btn:hover{background:var(--teal-wash);border-color:var(--teal)}
 
 #library{border:0!important;background:#fff!important}
@@ -1160,61 +1141,11 @@ footer{padding-top:64px;border-top:1px solid #E9EDEE}
   html{scroll-behavior:auto}
 }
 
-/* ICON LOCK — never blow up, never vanish */
-img.icon.icon-sticker,
-img.icon-sticker,
-a img.icon-sticker,
-button img.icon-sticker,
-.btn img.icon-sticker,
-.text-link img.icon-sticker,
-.gallery-controls img.icon-sticker,
-.gallery-foot img.icon-sticker,
-.lb-p img.icon-sticker,
-.lb-n img.icon-sticker,
-#quote .form button img.icon-sticker{
-  display:inline-block!important;
-  flex:0 0 auto!important;
-  width:32px!important;
-  height:32px!important;
-  max-width:32px!important;
-  max-height:32px!important;
-  min-width:32px!important;
-  min-height:32px!important;
-  object-fit:contain!important;
-  object-position:center!important;
-  margin:0!important;
-  padding:0!important;
-  border:0!important;
-  background:transparent!important;
-  opacity:1!important;
-  visibility:visible!important;
-  filter:none!important;
-  mix-blend-mode:normal!important;
-}
-header .hd-r .btn-coral img.icon-sticker{
-  width:40px!important;height:40px!important;max-width:40px!important;max-height:40px!important;min-width:40px!important;min-height:40px!important;
-}
-.home-hero-copy .btn-coral img.icon-sticker{
-  width:42px!important;height:42px!important;max-width:42px!important;max-height:42px!important;min-width:42px!important;min-height:42px!important;
-}
-.text-link img.icon-sticker{
-  width:34px!important;height:34px!important;max-width:34px!important;max-height:34px!important;min-width:34px!important;min-height:34px!important;
-}
 .gallery-controls button{opacity:1!important}
 .gallery-controls button:disabled{
   opacity:1!important;
   background:#F0F0F0!important;
   cursor:not-allowed;
-}
-.gallery-controls button:disabled img.icon-sticker{opacity:.35!important}
-.gallery-controls button img.icon-sticker{
-  width:30px!important;height:30px!important;max-width:30px!important;max-height:30px!important;min-width:30px!important;min-height:30px!important;
-}
-.card .btn img.icon-sticker{
-  width:30px!important;height:30px!important;max-width:30px!important;max-height:30px!important;min-width:30px!important;min-height:30px!important;
-}
-#quote .form>.btn img.icon-sticker{
-  width:32px!important;height:32px!important;max-width:32px!important;max-height:32px!important;min-width:32px!important;min-height:32px!important;
 }
 /* STICKY BRAND TYPE SCALE — sizes/weight/color only (keep Rodink font families)
    H1: 58px/800 · Large body: 26px/700 · Body: 20px/700 · Button: 18px/800 · all #000 */
