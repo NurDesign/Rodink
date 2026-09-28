@@ -2717,3 +2717,16 @@ footer .f-bot{border-top:0!important;margin-top:clamp(44px,5vw,68px)!important}
 @media(max-width:760px){
   .page-grid,.page-grid.grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* ============================================================
+   STICKER TYPE CHIPS — let the supplied artwork breathe
+   The chips sat the icon on a tinted rounded tile with padding,
+   which was right for the old 48px glyphs but squeezes the supplied
+   128px artwork into roughly a 40px opening. The home library shows
+   the same icons with no tile; these now match.
+   ============================================================ */
+.chip>.icon,
+.chip:nth-child(2n)>.icon{
+  width:54px!important;height:54px!important;
+  padding:0!important;background:none!important;border-radius:0!important;
+}
